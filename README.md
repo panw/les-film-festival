@@ -7,26 +7,26 @@
 GET /categories
 ```
 
-### Show categories
+### Show a category
 ```
 GET /categories/:category_id
 ```
 
 ## Films
 
-### View a film and its reviews
+### Show a film and its reviews
 
 ```
 GET /films/:film_id
 ```
 
-### View a specific review for a film
+### Show a specific review for a film and its comments
 
 ```
 GET /films/:film_id/reviews/:review_id
 ```
 
-### Write a review for a film
+### Create a review for a film
 
 ```
 POST /films/:film_id/reviews/
@@ -41,7 +41,7 @@ POST /films/:film_id/reviews/
 
 ## Review
 
-### Write a comment for a review
+### Create a comment for a review
 
 ```
 POST /reviews/:review_id/comments
@@ -56,7 +56,7 @@ POST /reviews/:review_id/comments
 
 ### Create a user  
 ```
-POST /users/new
+POST /users
 ```
 **Params**
 
