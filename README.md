@@ -1,28 +1,17 @@
-== README
+# LES Film Festival API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Users
 
-Things you may want to cover:
+### Create a user  
+```
+POST /users/new
+```
+**Params**
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+|Name        | Type  | Description           |
+|------------|-------|-----------------------|
+|first_name  |string |New user's first name  |
+|last_name   |string |New user's last name   |
+|email       |string |Account email          |
+|password    |string |Account password       |
+|image_url   |string |User's profile url     |
