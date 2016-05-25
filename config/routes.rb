@@ -1,9 +1,20 @@
 Rails.application.routes.draw do
-  resources :comments
-  resources :reviews
-  resources :films
-  resources :categories
-  resources :users
+  scope 'reviews/:review_id' do
+    resources :comments, only: [:create, :delete]
+  end
+
+  # resources :reviews, only: [] do
+  #   resources :comments, only: [:create, :delete]
+  # end
+
+  resources :films, only: :show do
+    resources :reviews, only: [:show, :create]
+  end
+  resources :categories, only: [:index, :show]
+  resources :users, only: [:new, :create]
+
+  root 'categories#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
