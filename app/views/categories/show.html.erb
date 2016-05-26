@@ -1,3 +1,15 @@
 <h1><%= @category.name %></h1>
 
+<div>
+  <% @category.films.each do |film| %>
+    <div>
+      <h3><%= film.name %></h3>
+      <%= link_to image_tag(film.image_url, height: '210', width: '140'), film %>
+      <div>
+        <%= link_to 'Info and reviews', film %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 <%= link_to 'Back', categories_path %>
