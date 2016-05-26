@@ -1,24 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <h3><%= @review.stars %> stars</h3>
+  <div>Review by: <%= @review.user.full_name %></div>
+  <p><%= @review.content %></p>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @review.content %>
-</p>
+<%= link_to 'Back', film_path(@review.film) %>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @review.rating %>
-</p>
+<h4>Comments</h4>
 
-<p>
-  <strong>Film:</strong>
-  <%= @review.film %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @review.user %>
-</p>
-
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<% @review.comments.each do |comment| %>
+  <div>
+    <div><%= comment.user.full_name %> — <%= time_ago_in_words(comment.updated_at) %></div>
+    <p><%= comment.content %></p>
+  </div>
+<% end %>

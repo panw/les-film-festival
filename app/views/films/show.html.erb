@@ -1,24 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <h2><%= @film.name %></h2>
+  <%= image_tag(@film.image_url) %>
+  <p>
+    <strong>Category:</strong>
+    <%= @film.category_name %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @film.description %>
+  </p>
+</div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @film.category %>
-</p>
+<%= link_to 'Back', category_path(@film.category) %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @film.name %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @film.image_url %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @film.description %>
-</p>
-
-<%= link_to 'Edit', edit_film_path(@film) %> |
-<%= link_to 'Back', films_path %>
+<% @film.reviews.each do |review| %>
+  <div>
+    <h3><%= review.stars %> stars</h3>
+    <div>Review by: <%= review.user.full_name %></div>
+    <p><%= review.content %></p>
+    <p><%= link_to pluralize(review.comments.count, 'comment'), film_review_path(@film, review) %></p>
+  </div>
+<% end %>
