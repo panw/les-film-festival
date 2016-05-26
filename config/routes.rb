@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope 'reviews/:review_id' do
-    resources :comments, only: [:create, :delete]
+    resources :comments, only: [:show, :create, :delete]
   end
 
   # resources :reviews, only: [] do
