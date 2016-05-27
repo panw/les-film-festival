@@ -24,7 +24,7 @@ xena = User.create!(first_name: "Xena", last_name: "WarriorPrincess", role: :gen
 
 
 [action_adventure, drama, comedy, thriller_horror, musical, documentary].each do |category|
-  5.times do
+  6.times do
 	  users = [bobby, peo, iuliia, ryan, zack, joe, mary, xena].shuffle
 	  film = Film.new(
 			name: Faker::Book.title, 
