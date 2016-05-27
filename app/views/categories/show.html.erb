@@ -1,7 +1,7 @@
 <h1><%= @category.name %></h1>
 
 <div id="category-show-container">
-  <%= react_component('Film') %>
+  <%= react_component('FilmList', {category: @category}) %>
 </div>
 
 <%= link_to 'Back', categories_path %>
