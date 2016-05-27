@@ -7,10 +7,26 @@
 GET /categories
 ```
 
+**Response**
+
+|Name        | Type  | Description           |
+|------------|-------|-----------------------|
+|id  |integer  |Category id  |
+|name   |string | Name of category|
+|url   |string |URL to access category|
+
 ### Show a category
 ```
 GET /categories/:category_id
 ```
+
+**Response**
+
+|Name        | Type  | Description           |
+|------------|-------|-----------------------|
+|id  |integer  |Category id  |
+|name   |string | Name of category|
+|films   |array |List of films in the category|
 
 ## Films
 
@@ -20,11 +36,15 @@ GET /categories/:category_id
 GET /films/:film_id
 ```
 
-### Show a specific review for a film and its comments
+**Response**
 
-```
-GET /films/:film_id/reviews/:review_id
-```
+|Name        | Type  | Description           |
+|------------|-------|-----------------------|
+|id  |integer  |Film id  |
+|name   |string | Name of film|
+|image   |string |URL to film poster|
+|description |string |About the film|
+|reviews |array |List of reviews for the film|
 
 ### Create a review for a film
 
@@ -38,6 +58,23 @@ POST /films/:film_id/reviews/
 |------------|-------|-----------------------|
 |content  |string  |The new review  |
 |rating   |integer |An integer out of 10 that represents a 5 star rating|
+
+### Show a specific review for a film and its comments
+
+```
+GET /films/:film_id/reviews/:review_id
+```
+
+**Response**
+
+|Name        | Type  | Description           |
+|------------|-------|-----------------------|
+|id  |integer  |Film id  |
+|content   |string | Content of the review|
+|stars   |number |The star rating for the film|
+|film |object |Associated film|
+|user |object |User who left the review|
+|comments |array |List of comments with the review|
 
 ## Review
 
